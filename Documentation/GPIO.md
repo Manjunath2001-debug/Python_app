@@ -11,9 +11,7 @@ and set and get the same line. It is useful for blinking an LED or toggling a di
 
 ## Dependencies
 
-- Python **3.13.3**
-- gpiod Python bindings (install via: `pip install gpiod`) – **version 2.3.0**
-
+- gpiod Python bindings (Required, version ≥ 1.6)
 ------------------------------------------------------------------------------------------------------------------
 
 ## Usage
