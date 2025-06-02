@@ -1,11 +1,6 @@
 # GPIO Input and Output Control Application using gpiod Library.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-## 📁 File Structure
-
-GPIO-Application/
-├── GPIO_input.py      # Contains function to initialize and get the GPIO.
-├── GPIO_output.py   # Contains function to initialize and set the GPIO.
            
 ## Description
 
