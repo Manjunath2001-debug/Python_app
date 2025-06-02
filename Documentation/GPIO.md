@@ -4,7 +4,7 @@
 
 ## Description
 
-1. This Python script GPIO_input.py allows you to control a GPIO output pin using the Linux gpiod library. It initializes a specific GPIO line and then sets its value to HIGH (1) or LOW (0). This is useful for tasks such as:
+1. This Python script GPIO_output.py allows you to control a GPIO output pin using the Linux gpiod library. It initializes a specific GPIO line and then sets its value to HIGH (1) or LOW (0). This is useful for tasks such as:
 
 - Turning an LED ON or OFF
 
@@ -17,7 +17,7 @@ Lets you configure and set the output state (high/low) of a chosen GPIO pin.
 
 Simple and effective for hardware control like LED blinking or toggling.
 
-2. This Python script reads the state of a GPIO input pin using the gpiod library. It is ideal for checking whether a button is pressed, a sensor is triggered, or any digital input is active (logic HIGH or LOW).
+2. This Python script GPIO_input.py reads the state of a GPIO input pin using the gpiod library. It is ideal for checking whether a button is pressed, a sensor is triggered, or any digital input is active (logic HIGH or LOW).
 
 ## Key Features:
 Uses the gpiod library to access GPIO input lines.
