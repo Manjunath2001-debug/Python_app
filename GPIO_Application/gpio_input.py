@@ -27,8 +27,8 @@ def gpio_init(GPIO_chip_name, GPIO_line):
 # Function: gpio_get()
 # Description: gets the GPIO line value (HIGH/LOW)
 #-------------------------------------------------------------------------------------------------------------
-def gpio_get(request, GPIO_line):
-    return request.get_value(GPIO_line)
+def gpio_get(request):
+    return request.get_value(0)
 #-------------------------------------------------------------------------------------------------------------
 # Main Execution
 #-------------------------------------------------------------------------------------------------------------
@@ -36,6 +36,6 @@ if __name__ == "__main__":
 
     request = gpio_init(GPIO_CHIP_NAME, GPIO_LINE)
 
-    current_val = gpio_get(request, GPIO_LINE)
+    current_val = gpio_get(request)
     print("GPIO value is:", "HIGH" if current_val else "LOW")
 
