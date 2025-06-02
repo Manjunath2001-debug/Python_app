@@ -1,7 +1,12 @@
 # GPIO Input and Output Control Application using gpiod Library.
 
 -----------------------------------------------------------------------------------------------------------------------------------------
+## 📁 File Structure
 
+GPIO-Application/
+├── GPIO_input.py      # Contains function to initialize and get the GPIO.
+├── GPIO_output.py   # Contains function to initialize and set the GPIO.
+           
 ## Description
 
 1. This Python script GPIO_input.py allows you to control a GPIO output pin using the gpiod library. It initializes a specific GPIO line and then sets its value to HIGH (1) or LOW (0). This is useful for tasks such as:
