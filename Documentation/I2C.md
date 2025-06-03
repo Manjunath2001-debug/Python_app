@@ -57,7 +57,7 @@ python your_script.py
 Initializes the I2C bus.
 
 - **Parameters:**
-  - `bus_num` (int): The I2C bus number (usually 1 on Raspberry Pi).
+  - `bus_num` (int): The I2C bus number.
 - **Returns:** 
   - SMBus object if successful, otherwise `None`.
 
