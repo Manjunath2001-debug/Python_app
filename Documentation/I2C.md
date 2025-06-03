@@ -12,7 +12,6 @@ This Python application demonstrates basic I2C communication using the `smbus2` 
 - [Usage](#usage)
 - [Functions](#functions)
 - [Error Handling](#error-handling)
-- [License](#license)
 
 ---
 
