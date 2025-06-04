@@ -11,7 +11,7 @@ from uart_send import uart_send
 # UART Configuration Constants
 #-------------------------------------------------------------------------------------------------------------
 BAUD_RATE = 115200          # Baud rate for UART communication
-
+uart_port = "/dev/ttySC3"
 def uart_init(port, baud_rate):
     """
         Function to initialize the uart data.
@@ -30,7 +30,7 @@ def uart_init(port, baud_rate):
 
 def list_uart_ports():
     """
-        Function to list the uart ports using serial.tools import list_ports .
+        Function to list the uart ports using serial.tools import list_ports.
         :return: None.
         """
     ports = list_ports.comports()
@@ -42,18 +42,25 @@ def list_uart_ports():
 # Main Execution
 #-------------------------------------------------------------------------------------------------------------
 if __name__ == "__main__":
-
     list_uart_ports()
-    uart_inp_port = str(input("Enter the com port: "))
-    uart = uart_init(uart_inp_port, BAUD_RATE)
+    uart = uart_init(uart_port, BAUD_RATE)
 
     if uart:
         try:
             while True:
                 user_input = input("Enter data to send over UART: ")
+                
                 uart_send(uart, user_input)
-                time.sleep(1)
-                uart_receive(uart)
+
+                print("Waiting for response...")
+                while True:
+                    if uart.in_waiting:
+                        response = uart_receive(uart)
+                        if response:
+                            print(f"Data received successfully: Data:{response}")
+                            break  # Exit the wait loop and go back to input
+                        time.sleep(1)  # Poll every 100ms
+
         except KeyboardInterrupt:
             print("\nUART communication stopped.")
         finally:
