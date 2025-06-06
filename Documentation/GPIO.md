@@ -1,4 +1,4 @@
-# GPIO Input and Output Control Application using gpiod Library.
+# GPIO Input and Output Control Application using gpiod Library
 
 -----------------------------------------------------------------------------------------------------------------------------------------
            
@@ -25,6 +25,7 @@ Uses the gpiod library to access GPIO input lines.
 Allows you to read the current value (0 or 1) of a specified GPIO pin.
 
 Useful for applications like reading buttons, switches, or sensors.
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Dependencies
@@ -48,7 +49,7 @@ Useful for applications like reading buttons, switches, or sensors.
 ## GPIO Configuration Constants
 --------------------------------------------------------------------------------------------------------------------------------------------
 GPIO_CHIP_NAME = "/dev/gpiochip0"
-    - The GPIO chip device path.
+    - The GPIO chip device path (change this according to your hardware).
 
 GPIO_LINE = 363
     - The line number to control input and output (change this according to your hardware).
