@@ -1,7 +1,7 @@
 
-# I2C Control Application using smbus/smbus2
+# I2C Control Application using smbus
 
-This Python application demonstrates basic I2C communication using the `smbus2` library. It allows reading from and writing to I2C device registers.
+This Python application demonstrates basic I2C communication using the `smbus` library. It allows reading from and writing to I2C device registers.
 
 ---
 
