@@ -41,7 +41,7 @@ SPI_Control_Application/
 
 4. **Output Example**:
    ```
-   Sent: [165, 90] | Received: [255, 127]
+   Sent: [165, 90] | Received: [165, 90]
    ```
 
 ---
