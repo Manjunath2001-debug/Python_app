@@ -1,5 +1,5 @@
 
-# Sample application code to check the RTC Peripheral.
+# Sample application code to check the RTC Peripheral
 
 This script reads the current time from the onboard Real-Time Clock (RTC) on a Linux system using the `/dev/rtc0` device.
 
