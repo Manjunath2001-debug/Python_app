@@ -5,7 +5,7 @@ This guide documents the process and output of testing Ethernet (`eth0`) interfa
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 ETHERNET/
@@ -18,26 +18,58 @@ ETHERNET/
 
 ## How It Works
 
-### Static IP Setup
+## Function: `set_static_ip()`
 
-The script configures a static IP like this:
+### Description:
+Configures a **static IP address** by editing `/etc/network/interfaces` and `/etc/resolv.conf`.
 
-```bash
-sudo ifconfig eth0 down
-sudo ifconfig eth0 192.168.1.100 netmask 255.255.255.0
-sudo route add default gw 192.168.1.1 eth0
-sudo ifconfig eth0 up
+### Definition:
+
+```python
+def set_static_ip(interface, address, netmask, gateway, dns_servers):
 ```
 
-### Dynamic IP Setup
+### Parameters:
 
-It then switches to dynamic IP using DHCP:
+| Name         | Type     | Description                                 |
+|--------------|----------|---------------------------------------------|
+| `interface`  | `str`    | Network interface name (e.g., `"eth0"`)     |
+| `address`    | `str`    | Static IP address (e.g., `"192.168.1.100"`) |
+| `netmask`    | `str`    | Subnet mask (e.g., `"255.255.255.0"`)       |
+| `gateway`    | `str`    | Default gateway IP (e.g., `"192.168.1.1"`)  |
+| `dns_servers`| `list`   | List of DNS servers (e.g., `["8.8.8.8"]`)   |
 
-```bash
-sudo dhclient -r eth0
-sudo ifconfig eth0 up
-sudo dhclient eth0
+### Behavior:
+- Backs up the existing `/etc/network/interfaces`.
+- Writes static IP config to `/etc/network/interfaces`.
+- Writes DNS config to `/etc/resolv.conf`.
+- Restarts the networking service.
+
+---
+
+## Function: `set_dynamic_ip()`
+
+### Description:
+Configures the interface to obtain IP dynamically via **DHCP**.
+
+### Definition:
+
+```python
+def set_dynamic_ip(interface):
 ```
+
+### Parameters:
+
+| Name         | Type     | Description                             |
+|--------------|----------|-----------------------------------------|
+| `interface`  | `str`    | Network interface name (e.g., `"eth0"`) |
+
+### Behavior:
+- Backs up the existing `/etc/network/interfaces`.
+- Writes DHCP config to `/etc/network/interfaces`.
+- Restarts the networking service.
+
+---
 
 ### Ping Test
 
@@ -79,12 +111,12 @@ Ping to 8.8.8.8 successful:
 
 ## Code works for below condition
 
-| Step               | Status      |
-|--------------------|-------------|
-| Static IP Set      | ✅ Success  |
-| Static IP Ping     | ✅ Success  |
-| Dynamic IP Set     | ✅ Success  |
-| Dynamic IP Ping    | ✅ Success  |
+| Step               | Status   |
+|--------------------|----------|
+| Static IP Set      | Success  |
+| Static IP Ping     | Success  |
+| Dynamic IP Set     | Success  |
+| Dynamic IP Ping    | Success  |
 
 ---
 
@@ -92,5 +124,3 @@ Ping to 8.8.8.8 successful:
 - You must run the script as `sudo`
 - Interface must be `eth0` or replace with actual interface
 - Internet not required for `dhclient`, but DHCP server is needed
-
-
