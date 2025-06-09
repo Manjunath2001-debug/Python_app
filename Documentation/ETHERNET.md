@@ -21,7 +21,7 @@ ETHERNET/
 ## Function: `set_static_ip()`
 
 ### Description:
-Configures a **static IP address** by editing `/etc/network/interfaces` and `/etc/resolv.conf`.
+Configures a **static IP address** by editing `/etc/systemd/network/` and `/etc/systemd/network/eth0.network`.
 
 ### Definition:
 
@@ -40,9 +40,8 @@ def set_static_ip(interface, address, netmask, gateway, dns_servers):
 | `dns_servers`| `list`   | List of DNS servers (e.g., `["8.8.8.8"]`)   |
 
 ### Behavior:
-- Backs up the existing `/etc/network/interfaces`.
-- Writes static IP config to `/etc/network/interfaces`.
-- Writes DNS config to `/etc/resolv.conf`.
+- Backs up the existing `/etc/systemd/network/`.
+- Writes static IP config to `/etc/systemd/network/eth0.network`.
 - Restarts the networking service.
 
 ---
@@ -65,8 +64,8 @@ def set_dynamic_ip(interface):
 | `interface`  | `str`    | Network interface name (e.g., `"eth0"`) |
 
 ### Behavior:
-- Backs up the existing `/etc/network/interfaces`.
-- Writes DHCP config to `/etc/network/interfaces`.
+- Backs up the existing `/etc/systemd/network`.
+- Writes DHCP config to `/etc/systemd/network/eth0.ntework`.
 - Restarts the networking service.
 
 ---
